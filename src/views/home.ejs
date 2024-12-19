@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Website - Home</title>
+  <script src="https://kit.fontawesome.com/58de2f2a64.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+          <ul class="menu">
+            <li class="dropdown-header">
+                <a href="http://localhost:4000"><h1>F1 World</h1></a>
+            </li>
+            <li class="dropdown">
+              <a href="#">Schedule</a>
+              <div class="dropdown-content">
+                <ul>
+                    <% races.forEach(race => { %>
+                  <li><a href="#"><%= race.raceName %></a></li>
+                    <% }) %>
+                </ul>
+              </div>
+            </li>
+            <li class="dropdown">
+                <a href="http://localhost:4000/drivers">Drivers</a>
+                <div class="dropdown-content">
+                  <ul>
+                    <% drivers.forEach(driver => { %>
+                    <li><a href="#"><%= driver.driverName %> <%= driver.driverFamilyName %></a></li>
+                    <% }) %>
+                  </ul>
+                </div>
+              </li>
+              <li class="dropdown">
+                <a href="#">Teams</a>
+                <div class="dropdown-content">
+                  <ul>
+                    <% teams.forEach(team => { %>
+                    <li id="teamsInfo">
+                        <a href="#"><%= team.name %></a>
+                        <img id="teams-img" src=<%= team.image %> alt="">
+                    </li>
+                    <% }) %>
+                  </ul>
+                </div>
+              </li>
+              <li class="dropdown">
+                <a href="http://localhost:4000/driver-standings">Driver Standings</a>
+                <div class="dropdown-content">
+                  <a href="http://localhost:4000/driver-standings"><h2>See Driver Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+                </div>
+              </li>
+              <li class="dropdown">
+                <a href="#">Constructor Standings</a>
+                <div class="dropdown-content">
+                  <a href=""><h2>See Constructor Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+                </div>
+              </li>
+          </ul>
+        </nav>
+      </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1><%= coverPageInfo.raceName %></h1>
+      <p>The thrilling end to the <%= coverPageInfo.season %> season at the <%= coverPageInfo.Circuit.circuitName %></p>
+      <a href="#articles" class="cta">See Highlights</a>
+    </div>
+  </section>
+
+  <section id="articles" class="articles">
+    <article class="article">
+      <a href="">
+      <img src="https://www.formula1.com/content/dam/fom-website/races/2024/race-listing/Bahrain.jpg" alt="Race">
+      <div class="article-content">
+        <h3> <%= coverPageInfo.season %> season highlights </h3>
+        <p>A look back at the <%= coverPageInfo.season %> season .</p>
+        <a href="#">Read More</a>
+      </div>
+        </a>
+    </article>
+
+    <article class="article">
+    <a href="http://localhost:4000/driver-standings">
+      <img src="https://ichef.bbci.co.uk/ace/standard/939/cpsprodpb/6479/live/5e5a0df0-16b0-11ef-a373-8f11a98927b3.png" alt="F1">
+      <div class="article-content">
+        <h3>Driver Standings</h3>
+        <p>See who's leading the championship this season.</p>
+        <a href="http://localhost:4000/driver-standings">Check Standings</a>
+      </div>
+    </a>
+    </article>
+
+    <article class="article">
+    <a href="">
+      <img src="https://luxuriate.life/wp-content/uploads/2024/02/DSC05527-LEADING-300kb.jpg" alt="Pit Stop">
+      <div class="article-content">
+        <h3>Behind the Scenes</h3>
+        <p>Explore the hard work that happens in the pit lanes.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </a>
+    </article>
+  </section>
+</body>
+</html>
