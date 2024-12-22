@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F1 Drivers 2024</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="https://kit.fontawesome.com/58de2f2a64.js" crossorigin="anonymous"></script>
-  <link rel="shortcut icon" href="https://images.seeklogo.com/logo-png/33/1/formula-1-logo-png_seeklogo-330361.png?v=638701145740000000" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Information</title>
+    <script src="https://kit.fontawesome.com/58de2f2a64.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="https://images.seeklogo.com/logo-png/33/1/formula-1-logo-png_seeklogo-330361.png?v=638701145740000000" type="image/x-icon">
 </head>
 <body>
-
   <header>
     <nav class="navbar">
       <ul class="menu">
@@ -109,31 +108,56 @@
       </ul>
     </nav>
   </header>
+    
 
+    <main id="races">
+        <h1><%= finalRace.raceName %></h1>
 
-
-  <div class="drivers-container">
-    <h1>F1 Drivers (2024 Season)</h1>
-    <div class="driver-list">
-      <% drivers.forEach(driver => { %>
-        <div class="driver-card">
-          <a href="http://localhost:4000/profile?driver=<%= driver.driverName %>+<%= driver.driverFamilyName %>">
-          <img src="<%= driver.image %>" alt="<%= driver.driverName %>" class="driver-image">
-          <h2 class="driver-name"><%= driver.driverName %> <%= driver.driverFamilyName %></h2>
-          <p class="driver-details"><strong>Nationality:</strong> <%= driver.nationality || 'Unknown' %></p>
-          <p class="driver-details"><strong>Date of Birth:</strong> <%= driver.birthdate %></p>
-          <p class="driver-details"><strong>Number:</strong> <%= driver.number || 'Unknown' %></p>
-        </a>
+        <div class="raceImage"> 
+            <img src="<%= finalRace.img %>" alt="">
         </div>
-      <% }) %>
-    </div>
-  </div>
 
-  <script>
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.dropdownMenu').classList.toggle('open');
-    this.querySelector('i').classList.toggle('rotate');
-  });
-</script>
+        <div class="details">
+            <h3>Location:</h3><p>
+                <%= finalRace.Circuit.Location.locality %>, <%= finalRace.Circuit.Location.country %>
+            </p>
+            <h3>Circuit:</h3><p><%= finalRace.Circuit.circuitName %></p>
+            <h3>Season:</h3><p><%= finalRace.season %></p>
+            <h3>Round:</h3><p><%= finalRace.round %></p>
+            <h3>Date:</h3><p><%= finalRace.date%> </p>
+            <h3>Time:</h3><p><%= finalRace.time%> </p>
+        </div>
+
+        <div class="practices">
+            <h2>Practices</h2>
+            <h3>First Practice:</h3><p><%= finalRace.FirstPractice.date%> <%= finalRace.FirstPractice.time%></p>
+            <% if (finalRace.SecondPractice) { %>
+                <h3>Second Practice:</h3>
+                <p>
+                  <%= finalRace.SecondPractice.date %> <%= finalRace.SecondPractice.time %>
+                </p>
+              <% } %>
+              
+              <% if (finalRace.ThirdPractice) { %>
+                <h3>Third Practice:</h3>
+                <p>
+                  <%= finalRace.ThirdPractice.date %> <%= finalRace.ThirdPractice.time %>
+                </p>
+              <% } %>
+
+              <% if (finalRace.Sprint) { %>
+                <h3>Sprint:</h3>
+                <p>
+                  <%= finalRace.Sprint.date %> <%= finalRace.Sprint.time %>
+                </p>
+              <% } %>
+        </div>
+
+        <div class="infoRace">
+          <h3><%= page.title %></h3>
+          <p><%= page.extract %></p>
+          <a href="<%= finalRace.url %>">via Wikipedia.</a>
+        </div>
+</main>
 </body>
 </html>

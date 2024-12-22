@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F1 Drivers 2024</title>
+  <title>F1 Teams 2024</title>
   <link rel="stylesheet" href="/css/style.css">
   <script src="https://kit.fontawesome.com/58de2f2a64.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="https://images.seeklogo.com/logo-png/33/1/formula-1-logo-png_seeklogo-330361.png?v=638701145740000000" type="image/x-icon">
@@ -109,24 +109,54 @@
       </ul>
     </nav>
   </header>
+    
 
-
-
-  <div class="drivers-container">
-    <h1>F1 Drivers (2024 Season)</h1>
-    <div class="driver-list">
-      <% drivers.forEach(driver => { %>
-        <div class="driver-card">
-          <a href="http://localhost:4000/profile?driver=<%= driver.driverName %>+<%= driver.driverFamilyName %>">
-          <img src="<%= driver.image %>" alt="<%= driver.driverName %>" class="driver-image">
-          <h2 class="driver-name"><%= driver.driverName %> <%= driver.driverFamilyName %></h2>
-          <p class="driver-details"><strong>Nationality:</strong> <%= driver.nationality || 'Unknown' %></p>
-          <p class="driver-details"><strong>Date of Birth:</strong> <%= driver.birthdate %></p>
-          <p class="driver-details"><strong>Number:</strong> <%= driver.number || 'Unknown' %></p>
-        </a>
+<main id="teamInformation">
+    <h1><%= teamMatch.name %></h1>
+        
+      <div class="carInfo">
+          <img src="<%= teamImageMatch.image %>" alt="<%= teamImageMatch.name %>" class="driver-image">
         </div>
-      <% }) %>
-    </div>
+
+        <div class="infoCar">
+          <h2><%= page.name %></h2>
+          <p><%= page.extract %></p>
+        </div>
+        
+        <h2 class="car-details">Drivers</h2> 
+
+        <div class="pilotInfo">
+        
+          <div class="peopleInfo1">
+          <img src="<%= teamMatch.drivers[0].img %>" alt="<%= teamMatch.drivers[0].familyName %>" class="driver-image">
+          <a href="http://localhost:4000/profile?driver=<%= teamMatch.drivers[0].givenName %>+<%= teamMatch.drivers[0].familyName %>">
+          <h1><%= teamMatch.drivers[0].givenName || 'Unknown' %> <%= teamMatch.drivers[0].familyName || 'Unknown' %></h1>
+          <h3>Number</h3> 
+          <p><%= teamMatch.drivers[0].permanentNumber || 'Unknown' %></p>
+          <h3>D-O-B</h3> 
+          <p><%= teamMatch.drivers[0].dateOfBirth || 'Unknown' %></p>
+          <h3>Nationality</h3>
+          <p><%= teamMatch.drivers[0].nationality || 'Unknown' %></p>
+          </a>
+        </div>
+
+        <div class="peopleInfo2">
+          <a href="http://localhost:4000/profile?driver=<%= teamMatch.drivers[1].givenName %>+<%= teamMatch.drivers[1].familyName %>">
+          <img src="<%= teamMatch.drivers[1].img %>" alt="<%= teamMatch.drivers[1].familyName %>" class="driver-image">
+          <h1><%= teamMatch.drivers[1].givenName || 'Unknown' %> <%= teamMatch.drivers[1].familyName || 'Unknown' %></h1>
+          <h3>Number</h3> 
+          <p><%= teamMatch.drivers[1].permanentNumber || 'Unknown' %></p>
+          <h3>D-O-B</h3> 
+          <p><%= teamMatch.drivers[1].dateOfBirth || 'Unknown' %></p>
+          <h3>Nationality</h3>
+          <p><%= teamMatch.drivers[1].nationality || 'Unknown' %></p>
+          </a>
+        </div>
+
+      </div>
+
+        
+    
   </div>
 
   <script>
@@ -135,5 +165,7 @@
     this.querySelector('i').classList.toggle('rotate');
   });
 </script>
+
+</main>
 </body>
 </html>

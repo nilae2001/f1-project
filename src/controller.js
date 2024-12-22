@@ -134,6 +134,31 @@ const getDriverStandings = async () => {
     }
 }
 
+const getConstructors = async () => {
+    try {
+        const options = {
+            method: 'GET',
+            url: 'https://api.jolpi.ca/ergast/f1/2024/constructors/?format=json',
+        };
+    
+        try {
+            const response = await axios.request(options);
+    
+            const constructors = response.data.MRData.ConstructorTable.Constructors;
+    
+            return constructors;
+    
+        } catch (error) {
+            console.error('Error fetching current scoreboard:', error.message);
+            return null;
+        }
+    } catch (error) {
+
+    }
+}
+
+
+
 // const driverScoreboard = async () => {
 
 //     const driverStandings = await getDriverStandings();
@@ -150,7 +175,6 @@ const getDriverStandings = async () => {
 //     return driverInfo;
 // }
 
-getDriverStandings()
 
 async function driversFormatting() {
     try {
@@ -194,4 +218,78 @@ async function driversFormatting() {
   }
 }
 
-module.exports = { driversFormatting, coverPageArticle, teamsInfo, getRaces, getDriverStandings }
+const getResults = async () => {
+    try {
+        const options = {
+            method: 'GET',
+            url: 'https://api.jolpi.ca/ergast/f1/2024/results/?format=json',
+        };
+    
+        try {
+            const response = await axios.request(options);
+    
+            const resultList = response.data.MRData.RaceTable.Races;
+    
+            return resultList;
+    
+        } catch (error) {
+            console.error('Error fetching current scoreboard:', error.message);
+            return null;
+        }
+    } catch (error) {
+        console.error("Error processing races:", err);
+        res.end("Failed to load races.");
+    }
+}
+
+const getConstructorStandings = async () => {
+    try {
+        const options = {
+            method: 'GET',
+            url: 'https://api.jolpi.ca/ergast/f1/2024/constructorstandings/?format=json',
+        };
+    
+        try {
+            const response = await axios.request(options);
+    
+            const resultList = response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+
+            return resultList
+    
+        } catch (error) {
+            console.error('Error fetching constructor standings:', error.message);
+            return null;
+        }
+    } catch (error) {
+        console.error("Error processing constructor standings:", err);
+        res.end("Failed to load constructor standings.");
+    }
+}
+
+const getQualifying = async () => {
+    try {
+        const options = {
+            method: 'GET',
+            url: 'https://api.jolpi.ca/ergast/f1/2024/qualifying/?format=json',
+        };
+    
+        try {
+            const response = await axios.request(options);
+    
+            const resultList = response.data.MRData.RaceTable.Races[0].QualifyingResults;
+
+            return resultList
+    
+        } catch (error) {
+            console.error('Error fetching constructor standings:', error.message);
+            return null;
+        }
+    } catch (error) {
+        console.error("Error processing constructor standings:", err);
+        res.end("Failed to load constructor standings.");
+    }
+}
+
+getQualifying()
+
+module.exports = { driversFormatting, coverPageArticle, teamsInfo, getRaces, getDriverStandings, getResults, getConstructors, getConstructorStandings, getQualifying }
