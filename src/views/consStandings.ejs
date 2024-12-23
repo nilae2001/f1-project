@@ -9,105 +9,105 @@
     <link rel="shortcut icon" href="https://images.seeklogo.com/logo-png/33/1/formula-1-logo-png_seeklogo-330361.png?v=638701145740000000" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-          <ul class="menu">
-            <div class="mobileMenu">
-            <li class="dropdown-header">
-                <a href="http://localhost:4000"><h1>F1 World</h1></a>
-            </li>
-            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+  <header>
+    <nav class="navbar">
+      <ul class="menu">
+        <div class="mobileMenu">
+        <li class="dropdown-header">
+            <a href="http://localhost:4000"><h1>F1 World</h1></a>
+        </li>
+        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="dropdownMenu">
+        <li class="dropdown">
+          <a href="http://localhost:4000/schedule">Schedule</a>
+          <div class="dropdown-content">
+            <ul>
+              <% races.forEach(race => { %>
+                <li>
+                  <form action="/races" method="GET">
+                    <button type="submit" id="race_<%= race.raceName%>" >
+                        <%= race.raceName %> 
+                    </button>
+                    <input type="hidden" name="race" value="<%= race.raceName%>" id="hidden_<%= race.raceName%>" />
+                </form>
+                <script>
+                  document.getElementById("race_<%= race.raceName%>").addEventListener("click", () => {
+                  const form = document.getElementById("hidden_<%= race.raceName %>").form;
+                  form.submit();
+                  });
+                </script>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:4000/drivers">Drivers</a>
+            <div class="dropdown-content">
+              <ul>
+                <% drivers.forEach(driver => { %>
+                <li>
+                  <form action="/profile" method="GET">
+                    <button type="submit" id="profile_<%= driver.driverName %>">
+                        <%= driver.driverName %> <%= driver.driverFamilyName %>
+                    </button>
+                    <input type="hidden" name="driver" value="<%= driver.driverName %> <%= driver.driverFamilyName %>" id="hidden_<%= driver.driverName %>" />
+                </form>
+                <script>
+                  document.getElementById("profile_<%= driver.driverName %>").addEventListener("click", () => {
+                  const form = document.getElementById("hidden_<%= driver.driverName %>").form;
+                  form.submit();
+                  });
+                </script>
+              </li>
+                <% }) %>
+              </ul>
             </div>
-            <div class="dropdownMenu">
-            <li class="dropdown">
-              <a href="#">Schedule</a>
-              <div class="dropdown-content">
-                <ul>
-                  <% races.forEach(race => { %>
-                    <li>
-                      <form action="/races" method="GET">
-                        <button type="submit" id="race_<%= race.raceName%>" >
-                            <%= race.raceName %> 
+          </li>
+          <li class="dropdown">
+            <a href="http://localhost:4000/teams">Teams</a>
+            <div class="dropdown-content" id="teamsDrop">
+              <ul>
+                <% teams.forEach(constructor => { %>
+                  <li>
+                    <form action="/team" method="GET">
+                      <button type="submit" id="constructor_<%=constructor.name%>">
+                        <div class="teamView">
+                          <p> <%=constructor.name %> </p>
+                            <img src="<%=constructor.image%>" alt="">
+                            </div>
                         </button>
-                        <input type="hidden" name="race" value="<%= race.raceName%>" id="hidden_<%= race.raceName%>" />
-                    </form>
-                    <script>
-                      document.getElementById("race_<%= race.raceName%>").addEventListener("click", () => {
-                      const form = document.getElementById("hidden_<%= race.raceName %>").form;
-                      form.submit();
-                      });
-                    </script>
-                  </li>
-                  <% }) %>
-                </ul>
-              </div>
-            </li>
-            <li class="dropdown">
-                <a href="http://localhost:4000/drivers">Drivers</a>
-                <div class="dropdown-content">
-                  <ul>
-                    <% drivers.forEach(driver => { %>
-                    <li>
-                      <form action="/profile" method="GET">
-                        <button type="submit" id="profile_<%= driver.driverName %>">
-                            <%= driver.driverName %> <%= driver.driverFamilyName %>
-                        </button>
-                        <input type="hidden" name="driver" value="<%= driver.driverName %> <%= driver.driverFamilyName %>" id="hidden_<%= driver.driverName %>" />
-                    </form>
-                    <script>
-                      document.getElementById("profile_<%= driver.driverName %>").addEventListener("click", () => {
-                      const form = document.getElementById("hidden_<%= driver.driverName %>").form;
-                      form.submit();
-                      });
-                    </script>
-                  </li>
-                    <% }) %>
-                  </ul>
-                </div>
-              </li>
-              <li class="dropdown">
-                <a href="#">Teams</a>
-                <div class="dropdown-content" id="teamsDrop">
-                  <ul>
-                    <% teams.forEach(constructor => { %>
-                      <li>
-                        <form action="/team" method="GET">
-                          <button type="submit" id="constructor_<%=constructor.name%>">
-                            <div class="teamView">
-                              <p> <%=constructor.name %> </p>
-                                <img src="<%=constructor.image%>" alt="">
-                                </div>
-                            </button>
-                          <input type="hidden" name="constructor" value="<%=constructor.name%>" id="hidden_<%=constructor.name%>"/>
-                      </form>
-                      
-                      <script>
-                        document.getElementById("constructor_<%=constructor.name%>").addEventListener("click", () => {
-                        const form = document.getElementById("hidden_<%=constructor.name%>").form;
-                        form.submit();
-                        });
-                      </script>
-                    </li>
-                    <% }) %>
-                  </ul>
-                </div>
-              </li>
-              <li class="dropdown">
-                <a href="http://localhost:4000/driver-standings">Driver Standings</a>
-                <div class="dropdown-content">
-                  <a href="http://localhost:4000/driver-standings"><h2>See Driver Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
-                </div>
-              </li>
-              <li class="dropdown">
-                <a href="http://localhost:4000/constructor-standings">Constructor Standings</a>
-                <div class="dropdown-content">
-                  <a href="http://localhost:4000/constructor-standings"><h2>See Constructor Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
-                </div>
-              </li>
+                      <input type="hidden" name="constructor" value="<%=constructor.name%>" id="hidden_<%=constructor.name%>"/>
+                  </form>
+                  
+                  <script>
+                    document.getElementById("constructor_<%=constructor.name%>").addEventListener("click", () => {
+                    const form = document.getElementById("hidden_<%=constructor.name%>").form;
+                    form.submit();
+                    });
+                  </script>
+                </li>
+                <% }) %>
+              </ul>
             </div>
-          </ul>
-        </nav>
-      </header>
+          </li>
+          <li class="dropdown">
+            <a href="http://localhost:4000/driver-standings">Driver Standings</a>
+            <div class="dropdown-content">
+              <a href="http://localhost:4000/driver-standings"><h2>See Driver Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="http://localhost:4000/constructor-standings">Constructor Standings</a>
+            <div class="dropdown-content">
+              <a href="http://localhost:4000/constructor-standings"><h2>See Constructor Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </header>
 
 
       <div class="confetti-container"></div>

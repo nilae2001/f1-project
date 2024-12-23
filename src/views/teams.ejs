@@ -21,7 +21,7 @@
         </div>
         <div class="dropdownMenu">
         <li class="dropdown">
-          <a href="#">Schedule</a>
+          <a href="http://localhost:4000/schedule">Schedule</a>
           <div class="dropdown-content">
             <ul>
               <% races.forEach(race => { %>
@@ -67,7 +67,7 @@
             </div>
           </li>
           <li class="dropdown">
-            <a href="#">Teams</a>
+            <a href="http://localhost:4000/teams">Teams</a>
             <div class="dropdown-content" id="teamsDrop">
               <ul>
                 <% teams.forEach(constructor => { %>
@@ -120,7 +120,10 @@
 
         <div class="infoCar">
           <h2><%= page.name %></h2>
-          <p><%= page.extract %></p>
+          <% page.extract.split('\n').forEach((paragraph) => { %>
+            <p><%= paragraph.trim() %></p>
+          <% }) %>
+          <a href="<%= teamMatch.url %>">via Wikipedia</a>
         </div>
         
         <h2 class="car-details">Drivers</h2> 
@@ -128,8 +131,8 @@
         <div class="pilotInfo">
         
           <div class="peopleInfo1">
-          <img src="<%= teamMatch.drivers[0].img %>" alt="<%= teamMatch.drivers[0].familyName %>" class="driver-image">
           <a href="http://localhost:4000/profile?driver=<%= teamMatch.drivers[0].givenName %>+<%= teamMatch.drivers[0].familyName %>">
+          <img src="<%= teamMatch.drivers[0].img %>" alt="<%= teamMatch.drivers[0].familyName %>" class="driver-image">
           <h1><%= teamMatch.drivers[0].givenName || 'Unknown' %> <%= teamMatch.drivers[0].familyName || 'Unknown' %></h1>
           <h3>Number</h3> 
           <p><%= teamMatch.drivers[0].permanentNumber || 'Unknown' %></p>

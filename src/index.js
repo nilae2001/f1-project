@@ -300,9 +300,11 @@ app.get('/drivers', async (req, res) => {
               driver.img = img.image
             })
 
-           
+            let urlP = teamMatch.url;
 
-            const urlP = teamMatch.url;
+            if(teamMatch.name === "Williams") {
+              urlP = "https://en.wikipedia.org/wiki/Williams_Racing"
+            }
 
               const newUrl = new URL(urlP);
               const title = newUrl.pathname.split("/wiki/")[1];
