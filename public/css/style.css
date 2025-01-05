@@ -1,0 +1,1013 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Exo:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+  body {
+    font-family: "Exo", sans-serif;
+    background-color: white;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    padding: 20px 40px;
+    background-color: black;
+    width: 100%;
+  }
+
+  .mobileMenu {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  header a  {
+    text-decoration: none;
+  }
+
+  .dropdown {
+    list-style-type: none;
+  }
+
+  .dropdown-header h1 {
+    align-self: center;
+    font-family: "Anton", sans-serif;
+    font-size: 36px; 
+    color: #fff; 
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .dropdown-header a {
+    list-style-type: none;
+  }
+  
+  .dropdown > a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 10px;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  
+  .dropdown > a:hover {
+    color: white;
+    background-color: #555;
+  }
+  
+
+  .menu-toggle {
+    display: block;
+    border: none;
+    font-size: 30px;  
+    color: white;
+    background-color: transparent;  
+    text-align: right;
+    transform-origin: center;
+  }
+
+  .menu-toggle i {
+    transition: 0.5s ease-in;
+  }
+
+  .menu-toggle i.rotate {
+    transform: rotateZ(90deg)
+  }
+
+  .dropdown-content {
+    display: none;
+  }
+
+  .dropdownMenu {
+    opacity: 0;  
+    max-height: 0;  
+    overflow: hidden;
+    transition: 1s ease-in-out;
+  }
+
+  .dropdownMenu.open {
+    opacity: 1;  
+    max-height: 500px;  
+    display: block;
+  }
+
+  .hero {
+    background-image: url('https://www.autoracing1.com/wp-content/uploads/2024/f1/abudhabi/piastri-and-norris-parc-ferme.jpg');
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.726);
+    padding: 20px;
+    margin: 1rem;
+    border-radius: 10px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-family: "Anton", sans-serif;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero .cta {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: black;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .hero .cta:hover {
+    background-color: #cc0000;
+  }
+
+  .articles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px;
+    background-color: #f4f4f4;
+  }
+  
+  .article  {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: 0.3s;
+  }
+  
+  .article a {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+  }
+  
+  .article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5)
+  }
+  
+  .article img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .article-content {
+    padding: 20px;
+  }
+  
+  .article-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .article-content p {
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  .article-content > a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .drivers-container {
+    padding: 20px;
+    margin: auto;
+  }
+  
+  .driver-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+    padding-top: 1rem;
+  }
+
+  .driver-card a {
+    text-decoration: none;
+  }
+  
+  .driver-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.205);
+    text-align: center;
+    transition: 0.3s ease;
+  }
+
+  .driver-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .driver-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .driver-name {
+    font-size: 4vh;
+    font-family: "Anton", sans-serif;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+  }
+  
+  .driver-details {
+    font-size: 14px;
+    color: rgb(70, 70, 70);
+  }
+  
+
+  .table {
+    box-shadow: 10px 10px 10px 10px white;
+    border-radius: 2rem;
+    margin: 4rem auto; 
+    padding: 1rem;
+    overflow-x: hidden;
+}
+
+caption {
+    text-align: left;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    font-weight: bold;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+.category {
+    color: red;
+}
+
+th {
+    background-color:red;
+}
+
+td, th {
+    padding: 0.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+#podium {
+  padding: 1rem 4rem 1rem 4rem;
+}
+
+.podium-container {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.podium-first, .podium-second, .podium-third {
+  display: grid;
+  grid-template-columns: 200px auto;
+  
+}
+
+.podium-first {
+  grid-row: 1 / 2;
+  background-color: gold;
+}
+
+.podium-second {
+  grid-row: 2 / 3;
+  background-color: silver;
+}
+
+.podium-third {
+  grid-row: 3 / 4;
+  background-color: burlywood;
+}
+
+.podium-first .info, .podium-second .info, .podium-third .info {
+  grid-column: 2 / 3;
+  grid-row:  1 / 2;
+  text-align: center;
+  padding: 1rem;
+}
+
+.podium-first img, .podium-second img, .podium-third img {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 200px;
+  height: 200px;
+}
+
+.points-counter {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: blue; 
+}
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  animation: fall 4s ease-in forwards, fadeOut 4s ease-out forwards;
+}
+
+#carPic {
+  padding: 1rem;
+  width: 100%;
+  height: auto;
+  margin: auto auto auto 1rem;
+}
+
+#teamInformation {
+  max-width: 450px;
+  margin: auto;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+#teamInformation img {
+  width: 100%;
+  height: auto;
+}
+
+.pilotInfo {
+  display: grid;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.peopleInfo1, .peopleInfo2 {
+  background-color: #f1f1f1;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: 0.3s ease;
+}
+
+.peopleInfo1:hover, .peopleInfo2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.peopleInfo1 a, .peopleInfo2 a {
+  text-decoration: none;
+  color: black;
+}
+
+.car-details {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.infoCar {
+  margin-left: auto;
+  padding-left: 2rem;
+}
+
+.infoCar p {
+  margin-bottom: 1em; 
+}
+
+.infoCar a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.infoCar a:hover {
+  color: gray;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+.popup.show {
+  visibility: visible;
+}
+
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg); 
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(800vh) rotate(360deg); 
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Profiles */
+
+#profile {
+  max-width: 450px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1rem 0;
+}
+
+#profile img {
+  width: 100%;
+  height: auto;
+}
+
+.biography {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.wiki p {
+  display: block;
+  margin-top: 1rem;
+}
+
+.wiki a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  display: block; 
+  margin-top: 1rem; 
+}
+
+.wiki a:hover {
+  color: gray;
+}
+
+.profileTitle {
+  margin: auto;
+}
+
+.profileTitle img {
+  margin: auto;
+}
+
+.number {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(185, 185, 185)
+}
+
+#profileTitle img {
+  width: 280px;
+  height: 200px;
+}
+
+#races {
+  padding: 1rem;
+  width: 100%;
+  height: auto;
+  max-width: 100%; 
+  object-fit: cover;
+  margin: auto;
+  display: grid;
+  gap: 2rem;
+}
+
+#races img {
+  width: 100%;
+  height: auto;
+}
+
+.infoRace a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.infoRace a:hover {
+  color: gray;
+}
+
+#races .raceImage {
+  width: 100%; 
+  height: auto; 
+  max-width: 100vw; 
+  object-fit: cover
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 800px) {
+  
+  .articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .driver-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #profile {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 7% 25% 5% auto;
+    max-width: 1000px;
+    padding: 1rem;
+  }
+
+  .biography {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+    grid-column: 2 / 3;
+  }
+
+  .wiki {
+    grid-row: 4 / 5;
+    grid-column: 1 / 3;
+    padding: 1rem;
+    padding: 1rem;
+  }
+  
+  .profileTitle {
+    padding: 1rem;
+  }
+  
+  .number {
+    padding-bottom: 1rem;
+    border-bottom: none;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin: auto;
+  }
+
+  .number h1 {
+    grid-column: 2 / 3;
+  }
+
+  .number p {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    color: grey;
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+
+  #profileTitle {
+    display: flex;
+  }
+  
+  #profileTitle img {
+    justify-content: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    width: 200px;
+    height: 130px;
+    margin: auto;
+  }
+
+  #carPic {
+    width: 500px;
+  }
+
+  #infoCar {
+    text-align: right;
+    padding-right: 3rem;
+    padding-top: 3rem;
+  }
+
+}
+
+  @media screen and (min-width: 1000px) {
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      width: 100%;
+    }
+
+    .navbar {
+      display: flex;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+  
+    .dropdownMenu {
+      display: flex;
+      opacity: 1;
+      max-height: none;
+    }
+  
+    .dropdown-content i {
+      color: red;
+      padding-left: 1rem;
+    }
+    
+    .dropdown-header h1 {
+      font-family: "Anton", sans-serif;
+      font-size: 36px; 
+      color: #fff; 
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    
+    .dropdownMenu > a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 10px;
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    
+    .dropdownMenu > a:hover {
+      color: white;
+      background-color: #555;
+    }
+    
+    .dropdown-content {
+      width: 100vw; 
+      background-color: black;
+      padding: 30px 0;
+      position: fixed;
+      top: 60px; 
+      left: 0;
+      z-index: -1; 
+    }
+  
+    
+
+    .teamView {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .teamView p {
+      grid-column: 1 / 2;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .teamView img {
+      width: 75%;
+      grid-column: 2 / 3;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  
+    .dropdown-content ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .dropdown-content ul li {
+      list-style: none;
+    }
+    
+    .dropdown-content li a {
+      color: #fff;
+      background-color: black;
+      text-decoration: none;
+      padding: 15px 25px;
+      font-size: 18px;
+      display: block;
+      z-index: 1;
+      border-left: 2px red solid;
+      margin: 10px 0 0 10px;
+    }
+
+    .dropdown-content li form {
+      display: block;
+      padding: 0.3rem;
+      padding-left: 0.6rem;
+    }
+
+
+    .dropdown-content li form button {
+      font-family: "Exo", sans-serif;
+      text-align: left;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 15px 25px;
+      display: block;
+      z-index: 1;
+      border-left: 2px red solid;
+      border-top: none;
+      color: white;
+      background-color: black;
+      padding: 1rem;
+      transition: 0.3s ease-in-out;
+    }
+    
+    .dropdown-content li form button:hover {
+      background-color: red; 
+    }
+  
+    .dropdown-content h2 {
+      color: white;
+    }
+
+    .dropdown-content > a {
+      display: block;
+      margin: auto;
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 3px solid rgba(0, 0, 0, 0);
+      transition: 0.5s ease;
+    }
+  
+    .dropdown-content > a:hover {
+      border-bottom: 3px solid red;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+    
+    .hero {
+      height: 80vh;
+      background-image: url('https://www.autoracing1.com/wp-content/uploads/2024/f1/abudhabi/piastri-and-norris-parc-ferme.jpg'); 
+    }
+  
+
+    .articles {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .driver-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .podium-container {
+      margin: auto;
+      padding: 1rem 0 1rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 0.3fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 1rem;
+    }
+    
+    .podium-first, .podium-second, .podium-third {
+      display: grid;
+      grid-template-rows: repeat(4, auto);
+    }
+    
+    .podium-first .info, .podium-second .info, .podium-third .info {
+      text-align: center;
+      padding-top: 1rem;
+    }
+    
+    .podium-first {
+      grid-column: 2 / 3;
+      grid-row: 1 / span 7;
+    }
+    
+    
+    .podium-second {
+      grid-column: 1 / 2;
+      grid-row: 2 / span 6;
+    }
+  
+    
+    .podium-third {
+      grid-column: 3 / 4;
+      grid-row: 3 / span 5;
+    }
+  
+    
+    .podium-first img, .podium-second img, .podium-third img {
+      width: 100%;
+      height: auto;
+      grid-row: 1 / 2;
+      grid-column: 1 / span 2;
+    }
+    
+    .podium-first .info, .podium-second .info, .podium-third .info {
+      grid-row: 2 / 3;
+      padding: 2rem;
+      grid-column: 1 / span 2;
+    }
+
+    #profile {
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: 0.1fr 0.4fr auto; 
+      max-width: 1000px;
+    }
+    
+    .wiki {
+      grid-row: 3 / 4;
+      grid-column: 1 / 3;
+      width: 85%;
+      padding: 1rem 0 0 1rem;
+    }
+
+    .number {
+      border-bottom: none;
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      margin: auto;
+      padding-top: 0;
+      margin-top: 0; 
+    }
+  
+    .number h1 {
+      grid-column: 2 / 3;
+    }
+  
+    .number p {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      color: grey;
+      font-size: 2rem;
+      padding: 0 1rem;
+    }
+  
+    .biography {
+      padding-left: 1rem;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      text-align: center;
+    }
+    
+
+
+    
+
+    #races {
+      padding: 1rem;
+      width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      grid-template-rows: repeat(4, auto);
+      gap: 2rem;
+    }
+
+    #races h1 {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+      text-align: center;
+    }
+
+    #races .raceImage {
+      width: 100%;
+      height: auto;
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+    }
+
+    #races .details {
+      grid-column: 5 / 6;
+      grid-row: 2 / 3;
+      margin:auto;
+      padding: 1rem;
+    }
+
+    #races .practices {
+      grid-column: 5 / 6;
+      grid-row: 3 / 4;
+      padding: 1rem;
+    }
+
+    #carPic {
+      width: 100%;
+      height: auto;
+      margin: auto;
+    }
+
+    #races .infoRace {
+      grid-column: 1 / 5;
+      grid-row: 3 / 4;
+      display: grid;
+      gap: 1rem;
+    }
+
+  
+    #teamInformation {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-template-rows: auto 15% auto;
+      padding: 1rem;
+    }
+
+    .carInfo {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .infoCar {
+      grid-row: 3 / 4;
+    }
+    
+    .pilotInfo {
+      grid-column: 2 / 3;
+      grid-row: 2 / 4;
+      display: grid;
+      gap: 1rem; 
+      grid-template-columns: 1fr;  
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1rem;
+    }
+
+    #profileTitle {
+      display: flex;
+    }
+    
+    #profileTitle img {
+      justify-content: center;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      width: 250px;
+      height: 180px;
+      margin: auto;
+    }
+
+}

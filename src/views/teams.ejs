@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= teamMatch.name %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/58de2f2a64.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="https://images.seeklogo.com/logo-png/33/1/formula-1-logo-png_seeklogo-330361.png?v=638701145740000000" type="image/x-icon">
+</head>
+<body>
+
+  <div id="loading-popup" class="popup">LOADING...</div>
+
+  <header>
+    <nav class="navbar">
+      <ul class="menu">
+        <div class="mobileMenu">
+        <li class="dropdown-header">
+            <a href="/"><h1>F1 World</h1></a>
+        </li>
+        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="dropdownMenu">
+        <li class="dropdown">
+          <a href="/schedule">Schedule</a>
+          <div class="dropdown-content">
+            <ul>
+              <% races.forEach(race => { %>
+                <li>
+                  <form action="/races" method="GET">
+                    <button type="submit" id="race_<%= race.raceName%>" >
+                        <%= race.raceName %> 
+                    </button>
+                    <input type="hidden" name="race" value="<%= race.raceName%>" id="hidden_<%= race.raceName%>" />
+                </form>
+                <script>
+                  document.getElementById("race_<%= race.raceName%>").addEventListener("click", () => {
+                  const form = document.getElementById("hidden_<%= race.raceName %>").form;
+                  form.submit();
+                  });
+                </script>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </li>
+        <li class="dropdown">
+            <a href="/drivers">Drivers</a>
+            <div class="dropdown-content">
+              <ul>
+                <% drivers.forEach(driver => { %>
+                <li>
+                  <form action="/profile" method="GET">
+                    <button type="submit" id="profile_<%= driver.driverName %>">
+                        <%= driver.driverName %> <%= driver.driverFamilyName %>
+                    </button>
+                    <input type="hidden" name="driver" value="<%= driver.driverName %> <%= driver.driverFamilyName %>" id="hidden_<%= driver.driverName %>" />
+                </form>
+                <script>
+                  document.getElementById("profile_<%= driver.driverName %>").addEventListener("click", () => {
+                  const form = document.getElementById("hidden_<%= driver.driverName %>").form;
+                  form.submit();
+                  });
+                </script>
+              </li>
+                <% }) %>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/teams">Teams</a>
+            <div class="dropdown-content" id="teamsDrop">
+              <ul>
+                <% teams.forEach(constructor => { %>
+                  <li>
+                    <form action="/team" method="GET">
+                      <button type="submit" id="constructor_<%=constructor.name%>">
+                        <div class="teamView">
+                          <p> <%=constructor.name %> </p>
+                            <img src="<%=constructor.image%>" alt="">
+                            </div>
+                        </button>
+                      <input type="hidden" name="constructor" value="<%=constructor.name%>" id="hidden_<%=constructor.name%>"/>
+                  </form>
+                  
+                  <script>
+                    document.getElementById("constructor_<%=constructor.name%>").addEventListener("click", () => {
+                    const form = document.getElementById("hidden_<%=constructor.name%>").form;
+                    form.submit();
+                    });
+                  </script>
+                </li>
+                <% }) %>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/driver-standings">Driver Standings</a>
+            <div class="dropdown-content">
+              <a href="/driver-standings"><h2>See Driver Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/constructor-standings">Constructor Standings</a>
+            <div class="dropdown-content">
+              <a href="/constructor-standings"><h2>See Constructor Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </header>
+    
+
+<main id="teamInformation">
+    <h1><%= teamMatch.name %></h1>
+        
+      <div class="carInfo">
+          <img src="<%= teamImageMatch.image %>" alt="<%= teamImageMatch.name %>" class="driver-image">
+        </div>
+
+        <div class="infoCar">
+          <h2><%= page.name %></h2>
+          <% page.extract.split('\n').forEach((paragraph) => { %>
+            <p><%= paragraph.trim() %></p>
+          <% }) %>
+          <a href="<%= page.name %>">via Wikipedia</a>
+        </div>
+        
+        <h2 class="car-details">Drivers</h2> 
+
+        <div class="pilotInfo">
+        
+          <div class="peopleInfo1">
+          <a href="/profile?driver=<%= teamMatch.drivers[0].givenName %>+<%= teamMatch.drivers[0].familyName %>">
+          <img src="<%= teamMatch.drivers[0].img %>" alt="<%= teamMatch.drivers[0].familyName %>" class="driver-image">
+          <h1><%= teamMatch.drivers[0].givenName || 'Unknown' %> <%= teamMatch.drivers[0].familyName || 'Unknown' %></h1>
+          <h3>Number</h3> 
+          <p><%= teamMatch.drivers[0].permanentNumber || 'Unknown' %></p>
+          <h3>D-O-B</h3> 
+          <p><%= teamMatch.drivers[0].dateOfBirth || 'Unknown' %></p>
+          <h3>Nationality</h3>
+          <p><%= teamMatch.drivers[0].nationality || 'Unknown' %></p>
+          </a>
+        </div>
+
+        <div class="peopleInfo2">
+          <a href="/profile?driver=<%= teamMatch.drivers[1].givenName %>+<%= teamMatch.drivers[1].familyName %>">
+          <img src="<%= teamMatch.drivers[1].img %>" alt="<%= teamMatch.drivers[1].familyName %>" class="driver-image">
+          <h1><%= teamMatch.drivers[1].givenName || 'Unknown' %> <%= teamMatch.drivers[1].familyName || 'Unknown' %></h1>
+          <h3>Number</h3> 
+          <p><%= teamMatch.drivers[1].permanentNumber || 'Unknown' %></p>
+          <h3>D-O-B</h3> 
+          <p><%= teamMatch.drivers[1].dateOfBirth || 'Unknown' %></p>
+          <h3>Nationality</h3>
+          <p><%= teamMatch.drivers[1].nationality || 'Unknown' %></p>
+          </a>
+        </div>
+
+      </div>
+
+        
+    
+  </div>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.dropdownMenu').classList.toggle('open');
+    this.querySelector('i').classList.toggle('rotate');
+  });
+
+  window.addEventListener('beforeunload', function () {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.classList.add('show');
+  });
+
+  function hideLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.classList.remove('show');
+  }
+
+  window.addEventListener('pageshow', hideLoadingPopup);
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Standings</title>
+    <script src="https://kit.fontawesome.com/58de2f2a64.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="https://images.seeklogo.com/logo-png/33/1/formula-1-logo-png_seeklogo-330361.png?v=638701145740000000" type="image/x-icon">
+</head>
+<body>
+
+  <div id="loading-popup" class="popup">LOADING...</div>
+  
+  <header>
+    <nav class="navbar">
+      <ul class="menu">
+        <div class="mobileMenu">
+        <li class="dropdown-header">
+            <a href="/"><h1>F1 World</h1></a>
+        </li>
+        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="dropdownMenu">
+        <li class="dropdown">
+          <a href="/schedule">Schedule</a>
+          <div class="dropdown-content">
+            <ul>
+              <% races.forEach(race => { %>
+                <li>
+                  <form action="/races" method="GET">
+                    <button type="submit" id="race_<%= race.raceName%>" >
+                        <%= race.raceName %> 
+                    </button>
+                    <input type="hidden" name="race" value="<%= race.raceName%>" id="hidden_<%= race.raceName%>" />
+                </form>
+                <script>
+                  document.getElementById("race_<%= race.raceName%>").addEventListener("click", () => {
+                  const form = document.getElementById("hidden_<%= race.raceName %>").form;
+                  form.submit();
+                  });
+                </script>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </li>
+        <li class="dropdown">
+            <a href="/drivers">Drivers</a>
+            <div class="dropdown-content">
+              <ul>
+                <% drivers.forEach(driver => { %>
+                <li>
+                  <form action="/profile" method="GET">
+                    <button type="submit" id="profile_<%= driver.driverName %>">
+                        <%= driver.driverName %> <%= driver.driverFamilyName %>
+                    </button>
+                    <input type="hidden" name="driver" value="<%= driver.driverName %> <%= driver.driverFamilyName %>" id="hidden_<%= driver.driverName %>" />
+                </form>
+                <script>
+                  document.getElementById("profile_<%= driver.driverName %>").addEventListener("click", () => {
+                  const form = document.getElementById("hidden_<%= driver.driverName %>").form;
+                  form.submit();
+                  });
+                </script>
+              </li>
+                <% }) %>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/teams">Teams</a>
+            <div class="dropdown-content" id="teamsDrop">
+              <ul>
+                <% teams.forEach(constructor => { %>
+                  <li>
+                    <form action="/team" method="GET">
+                      <button type="submit" id="constructor_<%=constructor.name%>">
+                        <div class="teamView">
+                          <p> <%=constructor.name %> </p>
+                            <img src="<%=constructor.image%>" alt="">
+                            </div>
+                        </button>
+                      <input type="hidden" name="constructor" value="<%=constructor.name%>" id="hidden_<%=constructor.name%>"/>
+                  </form>
+                  
+                  <script>
+                    document.getElementById("constructor_<%=constructor.name%>").addEventListener("click", () => {
+                    const form = document.getElementById("hidden_<%=constructor.name%>").form;
+                    form.submit();
+                    });
+                  </script>
+                </li>
+                <% }) %>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/driver-standings">Driver Standings</a>
+            <div class="dropdown-content">
+              <a href="/driver-standings"><h2>See Driver Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/constructor-standings">Constructor Standings</a>
+            <div class="dropdown-content">
+              <a href="/constructor-standings"><h2>See Constructor Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </header>
+
+
+      <div class="confetti-container"></div>
+
+      <main>
+
+        <section id="podium">
+        
+          <div class="podium-container">
+            
+            <article class="podium-second">
+              <img src="<%= enrichedConsStandings[1].image %>" alt="Second place" id="carPic">
+              <div class="info" id="infoCar">
+                <h3><%= enrichedConsStandings[1].Constructor.name %></h3>
+                <h4>Position: <%= enrichedConsStandings[1].position %></h4>
+                <h4>Points: <span class="points-counter" data-points="<%= enrichedConsStandings[1].points %>">0</span></h4>
+              </div>
+            </article>
+            
+            <article class="podium-first">
+              <img src="<%= enrichedConsStandings[0].image %>" alt="First place" id="carPic">
+              <div class="info" id="infoCar">
+                <h3><%= enrichedConsStandings[0].Constructor.name %> </h3>
+                <h4>Position: <%= enrichedConsStandings[0].position %></h4>
+                <h4>Points: <span class="points-counter" data-points="<%= enrichedConsStandings[0].points %>">0</span></h4>
+              </div>
+            </article>
+            
+            <article class="podium-third">
+              <img src="<%= enrichedConsStandings[2].image %>" alt="Third place" id="carPic">
+              <div class="info" id="infoCar">
+                <h3><%= enrichedConsStandings[2].Constructor.name %> </h3>
+                <h4>Position: <%= enrichedConsStandings[2].position %></h4>
+                <h4>Points: <span class="points-counter" data-points="<%= enrichedConsStandings[2].points %>">0</span></h4>
+              </div>
+            </article>
+          </div>
+        
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                const counters = document.querySelectorAll(".points-counter");
+
+                counters.forEach((counter) => {
+                    const targetPoints = parseInt(counter.dataset.points, 10);
+                    let currentPoints = 0;
+                    const duration = 2000;
+                    const increment = Math.ceil(targetPoints / (duration / 16));
+
+                    const countUp = () => {
+                        currentPoints += increment;
+                        if (currentPoints >= targetPoints) {
+                            counter.textContent = targetPoints;
+                            
+                            generateConfetti();
+                        } else {
+                            counter.textContent = currentPoints;
+                            requestAnimationFrame(countUp);
+                        }
+                    };
+
+                    countUp();
+                });
+            });
+
+            
+            function generateConfetti() {
+                const container = document.querySelector('.confetti-container') || createConfettiContainer();
+                
+                const colors = ['#ff6347', '#32cd32', '#1e90ff', '#ff1493', '#ffd700', '#4b0082'];
+
+                
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+
+                    
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.backgroundColor = randomColor;
+
+                    
+                    confetti.style.left = `${Math.random() * 100}vw`; 
+                    confetti.style.animationDelay = `${Math.random() * 1}s`; 
+
+                    container.appendChild(confetti);
+                }
+
+                
+                setTimeout(() => {
+                    container.innerHTML = ''; 
+                }, 4000); 
+            }
+
+            
+            function createConfettiContainer() {
+                const container = document.createElement('div');
+                container.classList.add('confetti-container');
+                document.body.appendChild(container);
+                return container;
+            }
+
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.dropdownMenu').classList.toggle('open');
+            this.querySelector('i').classList.toggle('rotate');
+          });
+
+          window.addEventListener('beforeunload', function () {
+            const loadingPopup = document.getElementById('loading-popup');
+            loadingPopup.classList.add('show');
+          });
+
+          function hideLoadingPopup() {
+            const loadingPopup = document.getElementById('loading-popup');
+            loadingPopup.classList.remove('show');
+          }
+
+          window.addEventListener('pageshow', hideLoadingPopup);
+
+        </script>
+
+      </section>
+
+      <section>
+        <div class="table">
+        <table>
+            
+        <caption><h1>F1 2024 Constructor Championship Standings</h1></caption>
+
+        <tr>
+        <th scope="col">Team</th>
+        <th scope="col">Position</th>
+        <th scope="col">Points</th>
+        <th scope="col">Wins</th>
+        </tr>
+        
+        
+        <% enrichedConsStandings.forEach(team => { %>
+        <tr>
+        <td><%= team.Constructor.name %></td>
+
+        <td><%= team.position %></td>
+
+        <td><%= team.points %></td>
+
+        <td><%= team.wins %></td>
+        </tr>
+        <% }) %>
+        
+    </table>
+    </div>
+</section>
+
+</main>
+</body>
+</html>
