@@ -157,6 +157,28 @@ const getConstructors = async () => {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+
+// const driverScoreboard = async () => {
+
+//     const driverStandings = await getDriverStandings();
+
+//     console.log(driverStandings)
+
+//     let driverInfo;
+
+//     driverStandings.forEach(person => {
+//         driverInfo += person;
+//     })
+
+    
+//     return driverInfo;
+// }
+
+
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 async function driversFormatting() {
     try {
         const driversList = await getDrivers();
@@ -271,4 +293,9 @@ const getQualifying = async () => {
     }
 }
 
+<<<<<<< HEAD
+=======
+getQualifying()
+
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 module.exports = { driversFormatting, coverPageArticle, teamsInfo, getRaces, getDriverStandings, getResults, getConstructors, getConstructorStandings, getQualifying }

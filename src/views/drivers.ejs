@@ -10,20 +10,31 @@
 </head>
 <body>
 
+<<<<<<< HEAD
   <div id="loading-popup" class="popup">LOADING...</div>
 
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
   <header>
     <nav class="navbar">
       <ul class="menu">
         <div class="mobileMenu">
         <li class="dropdown-header">
+<<<<<<< HEAD
             <a href="/"><h1>F1 World</h1></a>
+=======
+            <a href="http://localhost:4000"><h1>F1 World</h1></a>
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
         </li>
         <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
         </div>
         <div class="dropdownMenu">
         <li class="dropdown">
+<<<<<<< HEAD
           <a href="/schedule">Schedule</a>
+=======
+          <a href="http://localhost:4000/schedule">Schedule</a>
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
           <div class="dropdown-content">
             <ul>
               <% races.forEach(race => { %>
@@ -46,7 +57,11 @@
           </div>
         </li>
         <li class="dropdown">
+<<<<<<< HEAD
             <a href="/drivers">Drivers</a>
+=======
+            <a href="http://localhost:4000/drivers">Drivers</a>
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
             <div class="dropdown-content">
               <ul>
                 <% drivers.forEach(driver => { %>
@@ -69,7 +84,11 @@
             </div>
           </li>
           <li class="dropdown">
+<<<<<<< HEAD
             <a href="/teams">Teams</a>
+=======
+            <a href="http://localhost:4000/teams">Teams</a>
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
             <div class="dropdown-content" id="teamsDrop">
               <ul>
                 <% teams.forEach(constructor => { %>
@@ -96,6 +115,7 @@
             </div>
           </li>
           <li class="dropdown">
+<<<<<<< HEAD
             <a href="/driver-standings">Driver Standings</a>
             <div class="dropdown-content">
               <a href="/driver-standings"><h2>See Driver Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
@@ -105,6 +125,17 @@
             <a href="/constructor-standings">Constructor Standings</a>
             <div class="dropdown-content">
               <a href="/constructor-standings"><h2>See Constructor Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+=======
+            <a href="http://localhost:4000/driver-standings">Driver Standings</a>
+            <div class="dropdown-content">
+              <a href="http://localhost:4000/driver-standings"><h2>See Driver Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="http://localhost:4000/constructor-standings">Constructor Standings</a>
+            <div class="dropdown-content">
+              <a href="http://localhost:4000/constructor-standings"><h2>See Constructor Standings <i class="fa-solid fa-arrow-right"></i></h2></a>
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
             </div>
           </li>
         </div>
@@ -119,7 +150,11 @@
     <div class="driver-list">
       <% drivers.forEach(driver => { %>
         <div class="driver-card">
+<<<<<<< HEAD
           <a href="/profile?driver=<%= driver.driverName %>+<%= driver.driverFamilyName %>">
+=======
+          <a href="http://localhost:4000/profile?driver=<%= driver.driverName %>+<%= driver.driverFamilyName %>">
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
           <img src="<%= driver.image %>" alt="<%= driver.driverName %>" class="driver-image">
           <h2 class="driver-name"><%= driver.driverName %> <%= driver.driverFamilyName %></h2>
           <p class="driver-details"><strong>Nationality:</strong> <%= driver.nationality || 'Unknown' %></p>
@@ -136,6 +171,7 @@
     document.querySelector('.dropdownMenu').classList.toggle('open');
     this.querySelector('i').classList.toggle('rotate');
   });
+<<<<<<< HEAD
 
   window.addEventListener('beforeunload', function () {
     const loadingPopup = document.getElementById('loading-popup');
@@ -148,6 +184,8 @@
   }
 
   window.addEventListener('pageshow', hideLoadingPopup);
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 </script>
 </body>
 </html>

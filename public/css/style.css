@@ -17,7 +17,11 @@
 
   header {
     padding: 20px 40px;
+<<<<<<< HEAD
     background-color: black;
+=======
+    background-color: #141414;
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
     width: 100%;
   }
 
@@ -42,10 +46,13 @@
     font-weight: bold;
     letter-spacing: 2px;
   }
+<<<<<<< HEAD
 
   .dropdown-header a {
     list-style-type: none;
   }
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
   
   .dropdown > a {
     color: #fff;
@@ -88,8 +95,12 @@
   .dropdownMenu {
     opacity: 0;  
     max-height: 0;  
+<<<<<<< HEAD
     overflow: hidden;
     transition: 1s ease-in-out;
+=======
+    overflow: hidden;  
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
   }
 
   .dropdownMenu.open {
@@ -170,7 +181,10 @@
   
   .article:hover {
     transform: translateY(-5px);
+<<<<<<< HEAD
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5)
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
   }
   
   .article img {
@@ -370,7 +384,10 @@ table {
   margin: auto;
   display: grid;
   gap: 1rem;
+<<<<<<< HEAD
   padding: 1rem 1rem 1rem 1rem;
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 }
 
 #teamInformation img {
@@ -426,6 +443,7 @@ table {
   color: gray;
 }
 
+<<<<<<< HEAD
 .popup {
   position: fixed;
   top: 0;
@@ -446,6 +464,8 @@ table {
   visibility: visible;
 }
 
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 
 @keyframes fall {
   0% {
@@ -489,17 +509,23 @@ table {
   grid-template-columns: 1fr;
 }
 
+<<<<<<< HEAD
 .wiki p {
   display: block;
   margin-top: 1rem;
 }
 
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 .wiki a {
   text-decoration: none;
   color: black;
   font-size: 1.2rem;
+<<<<<<< HEAD
   display: block; 
   margin-top: 1rem; 
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 }
 
 .wiki a:hover {
@@ -507,11 +533,15 @@ table {
 }
 
 .profileTitle {
+<<<<<<< HEAD
   margin: auto;
 }
 
 .profileTitle img {
   margin: auto;
+=======
+  padding: 1rem;
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 }
 
 .number {
@@ -526,10 +556,14 @@ table {
 
 #races {
   padding: 1rem;
+<<<<<<< HEAD
   width: 100%;
   height: auto;
   max-width: 100%; 
   object-fit: cover;
+=======
+  width: 450px;
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
   margin: auto;
   display: grid;
   gap: 2rem;
@@ -540,6 +574,7 @@ table {
   height: auto;
 }
 
+<<<<<<< HEAD
 .infoRace a {
   text-decoration: none;
   color: black;
@@ -557,6 +592,8 @@ table {
   object-fit: cover
 }
 
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 
 @media screen and (max-width: 1000px) and (min-width: 800px) {
   
@@ -617,6 +654,7 @@ table {
     font-size: 2rem;
     padding: 0 1rem;
   }
+<<<<<<< HEAD
 
   #profileTitle {
     display: flex;
@@ -629,6 +667,14 @@ table {
     width: 200px;
     height: 130px;
     margin: auto;
+=======
+  
+  #profileTitle img {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    width: 160px;
+    height: 90px;
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
   }
 
   #carPic {
@@ -649,6 +695,10 @@ table {
       display: flex;
       justify-content: space-between;
       padding: 20px 40px;
+<<<<<<< HEAD
+=======
+      background-color: black;
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
       width: 100%;
     }
 
@@ -872,6 +922,7 @@ table {
 
     #profile {
       grid-template-columns: repeat(2, auto);
+<<<<<<< HEAD
       grid-template-rows: 0.1fr 0.4fr auto; 
       max-width: 1000px;
     }
@@ -887,12 +938,35 @@ table {
       border-bottom: none;
       grid-column: 1 / 2;
       grid-row: 2 / 3;
+=======
+      grid-template-rows: 5% auto 0.1fr 1fr;
+      max-width: 1000px;
+    }
+  
+    
+    .wiki {
+      grid-row: 4 / 5;
+      grid-column: 1 / 3;
+    }
+
+    
+    
+    
+    .number {
+      border-bottom: none;
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
       text-align: center;
       display: grid;
       grid-template-columns: repeat(2, auto);
       margin: auto;
+<<<<<<< HEAD
       padding-top: 0;
       margin-top: 0; 
+=======
+      padding-top: 1rem;
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
     }
   
     .number h1 {
@@ -910,6 +984,7 @@ table {
     .biography {
       padding-left: 1rem;
       grid-column: 2 / 3;
+<<<<<<< HEAD
       grid-row: 1 / 2;
       text-align: center;
     }
@@ -917,6 +992,19 @@ table {
 
 
     
+=======
+      grid-row: 2 / 3;
+      text-align: center;
+    }
+    
+    #profileTitle img {
+      margin: auto;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      width: 160px;
+      height: 100px;
+    }
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 
     #races {
       padding: 1rem;
@@ -967,6 +1055,19 @@ table {
       gap: 1rem;
     }
 
+<<<<<<< HEAD
+=======
+    .infoRace a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+    }
+    
+    .infoRace a:hover {
+      color: gray;
+    }
+
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
   
     #teamInformation {
       max-width: 100%;
@@ -997,6 +1098,7 @@ table {
       padding: 1rem;
     }
 
+<<<<<<< HEAD
     #profileTitle {
       display: flex;
     }
@@ -1010,4 +1112,6 @@ table {
       margin: auto;
     }
 
+=======
+>>>>>>> 9e6e12f017189a8b24ff8a5d3f83f1d57aa4e125
 }
